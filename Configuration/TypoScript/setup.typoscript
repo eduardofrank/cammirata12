@@ -1,0 +1,235 @@
+######################
+#### DEPENDENCIES ####
+######################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/setup.typoscript">
+
+
+##############
+#### PAGE ####
+##############
+page {
+    includeCSS {
+        theme = EXT:cammirata12/Resources/Public/Scss/Theme/theme.scss
+        cammirata-theme = EXT:cammirata12/Resources/Public/Css/cammirata.css
+    }
+
+    includeJSLibs {
+
+    }
+
+    includeJS {
+
+    }
+
+    includeJSFooterlibs {
+
+    }
+
+    includeJSFooter {
+        cammirata12_scripts = EXT:cammirata12/Resources/Public/JavaScript/Dist/scripts.js
+    }
+}
+
+#############################################
+## From here onward added by Eduardo Frank ##
+#############################################
+# Error reports in plain text instead of oops
+config.admPanel = 0
+config.contentObjectExceptionHandler = 0
+
+
+#### FORM CONFIGURATION ###
+plugin.tx_form.settings.yamlConfigurations.100 = EXT:cammirata12/Configuration/Form/FormSetup.yaml
+module.tx_form.settings.yamlConfigurations.100 = EXT:cammirata12/Configuration/Form/FormSetup.yaml
+
+
+page {
+    10 = FLUIDTEMPLATE
+    10 {
+	dataProcessing {
+                30 {
+                special = rootline
+                special.range = 1|-1
+                includeNotInMenu = 1
+                as = breadcrumb
+                if {
+                    value = {$page.theme.breadcrumb.enableLevel}
+                    value {
+                        insertData = 1
+                        prioriCalc = 1
+                        stdWrap.wrap = |-1
+                    }
+                    isGreaterThan {
+                        data = level
+                    }
+                }
+                dataProcessing {
+                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                    10 {
+                        references.fieldName = nav_icon
+                        as = icon
+                    }
+                }
+            }
+        }
+    }
+}
+
+plugin.tx_seo.config {
+  xmlSitemap {
+    sitemaps {
+      projects {
+        provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+        config {
+          table = tx_news_domain_model_news
+          sortField = sorting
+          lastModifiedField = tstamp
+          pid = 31
+          recursive = 2
+          url {
+            pageId = 9
+            fieldToParameterMap {
+              uid = tx_news_pi1[news]
+            }
+            additionalGetParameters {
+              tx_news_pi1.controller = News
+              tx_news_pi1.action = detail
+            }
+            useCacheHash = 1
+          }
+        }
+      }
+      women {
+        provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+        config {
+          table = tx_news_domain_model_news
+          sortField = sorting
+          lastModifiedField = tstamp
+          pid = 28
+          recursive = 2
+          url {
+            pageId = 14
+            fieldToParameterMap {
+              uid = tx_news_pi1[news]
+            }
+            additionalGetParameters {
+              tx_news_pi1.controller = News
+              tx_news_pi1.action = detail
+            }
+            useCacheHash = 1
+          }
+        }
+      }
+      men {
+        provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+        config {
+          table = tx_news_domain_model_news
+          sortField = sorting
+          lastModifiedField = tstamp
+          pid = 29
+          recursive = 2
+          url {
+            pageId = 16
+            fieldToParameterMap {
+              uid = tx_news_pi1[news]
+            }
+            additionalGetParameters {
+              tx_news_pi1.controller = News
+              tx_news_pi1.action = detail
+            }
+            useCacheHash = 1
+          }
+        }
+      }
+      editorial {
+        provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+        config {
+          table = tx_news_domain_model_news
+          sortField = sorting
+          lastModifiedField = tstamp
+          pid = 30
+          recursive = 2
+          url {
+            pageId = 18
+            fieldToParameterMap {
+              uid = tx_news_pi1[news]
+            }
+            additionalGetParameters {
+              tx_news_pi1.controller = News
+              tx_news_pi1.action = detail
+            }
+            useCacheHash = 1
+          }
+        }
+      }
+      blog {
+        provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+        config {
+          table = tx_news_domain_model_news
+          sortField = sorting
+          lastModifiedField = tstamp
+          pid = 34
+          recursive = 2
+          url {
+            pageId = 21
+            fieldToParameterMap {
+              uid = tx_news_pi1[news]
+            }
+            additionalGetParameters {
+              tx_news_pi1.controller = News
+              tx_news_pi1.action = detail
+            }
+            useCacheHash = 1
+          }
+        }
+      }
+      exhibitions {
+        provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+        config {
+          table = tx_news_domain_model_news
+          sortField = sorting
+          lastModifiedField = tstamp
+          pid = 32
+          recursive = 2
+          url {
+            pageId = 33
+            fieldToParameterMap {
+              uid = tx_news_pi1[news]
+            }
+            additionalGetParameters {
+              tx_news_pi1.controller = News
+              tx_news_pi1.action = detail
+            }
+            useCacheHash = 1
+          }
+        }
+      }
+    }
+  }
+}
+
+
+#### REDIRECTION FOR DETAIL PAGES WHEN CALLED ALONE ###
+[globalVar = TSFE:id=9]
+     plugin.tx_news.settings.detail.errorHandling = redirectToPage,4,404
+[global]
+
+[globalVar = TSFE:id=14]
+     plugin.tx_news.settings.detail.errorHandling = redirectToPage,12,404
+[global]
+
+[globalVar = TSFE:id=16]
+     plugin.tx_news.settings.detail.errorHandling = redirectToPage,15,404
+[global]
+
+[globalVar = TSFE:id=18]
+     plugin.tx_news.settings.detail.errorHandling = redirectToPage,17,404
+[global]
+
+[globalVar = TSFE:id=21]
+     plugin.tx_news.settings.detail.errorHandling = redirectToPage,7,404
+[global]
+
+[globalVar = TSFE:id=33]
+     plugin.tx_news.settings.detail.errorHandling = redirectToPage,27,404
+[global]
