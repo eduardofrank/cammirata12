@@ -9,17 +9,16 @@ finishers:
   -
     options:
       subject: 'e-mail from web page'
-      recipientAddress: info@claudiaammirata.com
-      recipientName: 'Claudia Ammirata'
       senderAddress: '{text-3}'
       senderName: '{text-1}  {text-2}'
-      replyToAddress: '{text-3}'
-      carbonCopyAddress: ''
-      blindCarbonCopyAddress: ''
       format: html
       attachUploads: true
       translation:
-        language: ''
+        language: default
+      recipients:
+        info@claudiaammirata.com: 'Claudia Ammirata'
+      replyToRecipients:
+        '{text-3}': ''
     identifier: EmailToReceiver
   -
     options:
@@ -58,6 +57,10 @@ renderables:
                     numbersOfColumnsToUse: '12'
                   xs:
                     numbersOfColumnsToUse: '12'
+                  xl:
+                    numbersOfColumnsToUse: '6'
+                  xxl:
+                    numbersOfColumnsToUse: '6'
             validators:
               -
                 identifier: NotEmpty
@@ -79,6 +82,10 @@ renderables:
                     numbersOfColumnsToUse: '12'
                   xs:
                     numbersOfColumnsToUse: '12'
+                  xl:
+                    numbersOfColumnsToUse: '6'
+                  xxl:
+                    numbersOfColumnsToUse: '6'
             validators:
               -
                 identifier: NotEmpty
@@ -100,6 +107,10 @@ renderables:
                     numbersOfColumnsToUse: '12'
                   xs:
                     numbersOfColumnsToUse: '12'
+                  xl:
+                    numbersOfColumnsToUse: '6'
+                  xxl:
+                    numbersOfColumnsToUse: '6'
             validators:
               -
                 identifier: NotEmpty
@@ -121,6 +132,10 @@ renderables:
                     numbersOfColumnsToUse: '12'
                   xs:
                     numbersOfColumnsToUse: '12'
+                  xl:
+                    numbersOfColumnsToUse: '6'
+                  xxl:
+                    numbersOfColumnsToUse: '6'
           -
             defaultValue: ''
             type: Textarea
@@ -139,6 +154,10 @@ renderables:
                   sm:
                     numbersOfColumnsToUse: '12'
                   xs:
+                    numbersOfColumnsToUse: '12'
+                  xl:
+                    numbersOfColumnsToUse: '12'
+                  xxl:
                     numbersOfColumnsToUse: '12'
             validators:
               -

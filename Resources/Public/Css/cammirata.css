@@ -691,14 +691,14 @@ footer .frame {
 @media (min-width: 1200px) {
 .textpic-gallery {
     padding: 0;
-    flex: 0 0 30.5%;
+    flex: 0 0 29%;
 }
 }
 
 @media (min-width: 1200px) {
 .textpic-text {
     padding: 0;
-    flex: 0 0 67%;
+    flex: 0 0 66%;
 }
 }
 
