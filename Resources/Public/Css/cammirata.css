@@ -171,6 +171,13 @@ a:hover {
     color: var(--darker-accent);
 }
 
+.navbar-toggler:focus {
+  text-decoration: none;
+  outline: 0;
+  border: 0;
+  box-shadow: 0 0 0 0;
+}
+
 @media (max-width: 9998px) {
 .navbar-mainnavigation.navbar-default a:not(.active),
 .navbar-mainnavigation.navbar-default-transition a:not(.active),
